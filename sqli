@@ -1,0 +1,10 @@
+Normal query:
+
+    SELECT * FROM tblProduct WHERE ProductId = 101;
+
+Parametrized query:
+
+    ProductId = Request[“productid”];
+    ProductId = ProductId.trim();
+    SELECT * FROM Product WHERE Id=@0;
+    var row = db.QuerySingle(selectQueryString, ProductId);
