@@ -1,0 +1,18 @@
+// C# code 
+@{
+    var db = Database.Open("db_name");
+    var id = Request.Form["id"];
+    if(IsPost) 
+    {
+        if(ModelState.IsValid) 
+        {
+            var selectQuery = "SELECT * FROM table_name where id = '@0';
+            @foreach(var row in db.Query(selectQuery))
+            {
+                var name = @row.Name;
+                var price = @row.Price;
+                // Now manipulate on this price value
+            }
+        }
+    }
+}
