@@ -1,0 +1,16 @@
+The code to invalidate session:
+
+//for logout
+if (SessionConfig.Current.UserType != null)
+{
+    Logout();
+    Response.Redirect("~/User/Login");
+return;
+}
+//logout()
+private void Logout()
+{
+    Session.Abandon();
+    Session.Clear();
+    FormsAuthentication.SignOut();
+}
